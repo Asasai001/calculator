@@ -14,7 +14,7 @@ def power(a, b):
   return a**b
 
 def sqrt(a):
-  return a * 0.5
+  return a ** 0.5
 
 def percentage(a):
   return a / 100
@@ -29,6 +29,13 @@ def calculator():
         try:
           number = float(input_1.replace('%', ''))
           number_1 = percentage(number)
+          break
+        except ValueError:
+          print(f"Your input {input_1} is not valid. Please try again")
+      elif 'v' in input_1[-1]:
+        try:
+          number = float(input_1.replace('v', ''))
+          number_1 = sqrt(number)
           break
         except ValueError:
           print(f"Your input {input_1} is not valid. Please try again")
@@ -48,6 +55,14 @@ def calculator():
           break
         except ValueError:
           print(f"Your input {input_2} is not valid. Please try again")
+
+      elif 'v' in input_2[-1]:
+        try:
+          number = float(input_2.replace('v', ''))
+          number_2 = sqrt(number)
+          break
+        except ValueError:
+          print(f"Your input {input_2} is not valid. Please try again")
       else:
         try:
           number_2 = float(input_2)
@@ -55,7 +70,7 @@ def calculator():
         except:
           print(f"Your input {input_2} is not valid. Please try again")
 
-    action = input("Enter mathematical operation (+, -, *, /, ** or sqrt), press q to quit: ")
+    action = input("Enter mathematical operation (+, -, *, / or **), press q to quit: ")
     if action == 'q':
       break
 
@@ -74,9 +89,6 @@ def calculator():
 
     elif action == '**':
       result = power(number_1, number_2)
-
-    elif action == 'sqrt':
-      result = sqrt(number_1)
 
     entry = f"{number_1} {action} {number_2} = {result}"
     operations.append(entry)
