@@ -10,26 +10,52 @@ def multiply(a, b):
 def divide(a, b):
   return a / b if b != 0 else "Division by zero are not allowed"
 
+def power(a, b):
+  return a**b
+
+def sqrt(a):
+  return a * 0.5
+
+def percentage(a):
+  return a / 100
+
+
 def calculator():
   operations = []
   while True:
     while True:
-      try:
-        number_1 = float(input("Enter your numbers (1): "))
-        break
-      except ValueError:
-        print(f"Your input {number_1} is not valid. Please try again")
+      input_1 = input("Enter your numbers (1): ")
+      if '%' in input_1:
+        try:
+          number = float(input_1.replace('%', ''))
+          number_1 = percentage(number)
+          break
+        except ValueError:
+          print(f"Your input {input_1} is not valid. Please try again")
+      else:
+        try:
+          number_1 = float(input_1)
+          break
+        except:
+          print(f"Your input {input_1} is not valid. Please try again")
 
     while True:
-      try:
-        number_2 = float(input("Enter your numbers (2): "))
-        break
-      except ValueError:
-        print(f"Your input {number_2} is not valid. Please try again")
+      input_2 = input("Enter your numbers (2): ")
+      if '%' in input_2:
+        try:
+          number = float(input_2.replace('%', ''))
+          number_2 = percentage(number)
+          break
+        except ValueError:
+          print(f"Your input {input_2} is not valid. Please try again")
+      else:
+        try:
+          number_2 = float(input_2)
+          break
+        except:
+          print(f"Your input {input_2} is not valid. Please try again")
 
-
-
-    action = input("Enter mathematical operation (+, -, * or /), press q to quit: ")
+    action = input("Enter mathematical operation (+, -, *, /, ** or sqrt), press q to quit: ")
     if action == 'q':
       break
 
@@ -45,6 +71,12 @@ def calculator():
 
     elif action == '/':
       result = divide(number_1, number_2)
+
+    elif action == '**':
+      result = power(number_1, number_2)
+
+    elif action == 'sqrt':
+      result = sqrt(number_1)
 
     entry = f"{number_1} {action} {number_2} = {result}"
     operations.append(entry)
