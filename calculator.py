@@ -21,7 +21,7 @@ def percentage(a):
 
 
 def calculator():
-  operations = []
+  operations = history_load()
   while True:
     while True:
       input_1 = input("Enter your numbers (1): ")
@@ -72,6 +72,7 @@ def calculator():
 
     action = input("Enter mathematical operation (+, -, *, / or **), press q to quit: ")
     if action == 'q':
+      history_save(operations)
       break
 
     result = None
@@ -92,6 +93,7 @@ def calculator():
 
     entry = f"{number_1} {action} {number_2} = {result}"
     operations.append(entry)
+    history_save(operations)
 
     print(f"Your latest output: {entry}")
     print(f"History: {operations}")
