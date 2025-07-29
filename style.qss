@@ -1,0 +1,44 @@
+/* ==== 1. Pagrindinis langas ==== */
+QMainWindow {
+    background-color: #f0f0f0; /* bendras fonas */
+}
+
+/* ==== 2. Bendras visų mygtukų stilius ==== */
+QPushButton {
+    background-color: #e6e6e6;
+    border: 1px solid #999;
+    border-radius: 6px;
+    font-size: 16px;
+    padding: 5px;
+}
+
+/* Efektas paspaudus */
+QPushButton:pressed {
+    background-color: #cccccc;
+}
+
+/* Efektas užvedus pelę */
+QPushButton:hover {
+    background-color: #dddddd;
+}
+
+/* ==== 3. Specialūs veiksmo mygtukai pagal objectName ==== */
+QPushButton#btnEquals {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+
+QPushButton#btnClear {
+    background-color: #f44336;
+    color: white;
+}
+
+/* ==== 4. Skaičiuotuvo ekranas ==== */
+QLineEdit#display {
+    background-color: #ffffff;
+    border: 2px solid #333;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 5px;
+}
