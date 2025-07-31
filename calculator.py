@@ -1,83 +1,36 @@
 from math_functions import *
 from history import *
 
-def calculator():
+def calculator(num1, act, num2):
   operations = history_load()
-  while True:
-    while True:
-      input_1 = input("Enter your numbers (1): ")
-      if '%' in input_1:
-        try:
-          number = float(input_1.replace('%', ''))
-          number_1 = percentage(number)
-          break
-        except ValueError:
-          print(f"Your input {input_1} is not valid. Please try again")
-      elif 'v' in input_1[-1]:
-        try:
-          number = float(input_1.replace('v', ''))
-          number_1 = sqrt(number)
-          break
-        except ValueError:
-          print(f"Your input {input_1} is not valid. Please try again")
-      else:
-        try:
-          number_1 = float(input_1)
-          break
-        except:
-          print(f"Your input {input_1} is not valid. Please try again")
+  num1 = check_number(num1)
+  act = check_action(act)
+  num2 = check_number(num2)
 
-    while True:
-      input_2 = input("Enter your numbers (2): ")
-      if '%' in input_2:
-        try:
-          number = float(input_2.replace('%', ''))
-          number_2 = percentage(number)
-          break
-        except ValueError:
-          print(f"Your input {input_2} is not valid. Please try again")
+  result = None
+  if num1 != None and num2 != None:
+    if act == '+':
+      result = add(num1, num2)
 
-      elif 'v' in input_2[-1]:
-        try:
-          number = float(input_2.replace('v', ''))
-          number_2 = sqrt(number)
-          break
-        except ValueError:
-          print(f"Your input {input_2} is not valid. Please try again")
-      else:
-        try:
-          number_2 = float(input_2)
-          break
-        except:
-          print(f"Your input {input_2} is not valid. Please try again")
+    elif act == '-':
+      result = subtract(num1, num2)
 
-    action = input("Enter mathematical operation (+, -, *, / or **), press q to quit: ")
-    if action == 'q':
-      history_save(operations)
-      break
+    elif act == '*':
+      result = multiply(num1, num2)
 
-    result = None
-    if action == '+':
-      result = add(number_1, number_2)
+    elif act == '/':
+      try:
+        result = divide(num1, num2)
+      except ZeroDivisionError:
+        return None
 
-    elif action == '-':
-      result = subtract(number_1, number_2)
+    elif act == '**':
+      result = power(num1, num2)
 
-    elif action == '*':
-      result = multiply(number_1, number_2)
-
-    elif action == '/':
-      result = divide(number_1, number_2)
-
-    elif action == '**':
-      result = power(number_1, number_2)
-
-    entry = f"{number_1} {action} {number_2} = {result}"
+    entry = f"{num1} {act} {num2} = {result}"
     operations.append(entry)
     history_save(operations)
-
-    print(f"Your latest output: {entry}")
-    print(f"History: {operations}")
+    return entry
 
 
 calculator()
