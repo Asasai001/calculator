@@ -1,15 +1,13 @@
-/* ==== 1. Pagrindinis langas ==== */
 QMainWindow {
-    background-color: #f0f0f0; /* bendras fonas */
+    background-color: #f0f0f0;
 }
 
-/* ==== 2. Bendras visų mygtukų stilius (3D efektas) ==== */
 QPushButton {
     background-color: qlineargradient(
         x1:0, y1:0, x2:0, y2:1,
-        stop:0 #ffffff,   /* viršus šviesus */
-        stop:0.3 #f7f7f7, /* šiek tiek tamsiau */
-        stop:1 #dcdcdc    /* apačia tamsesnė */
+        stop:0 #ffffff,
+        stop:0.3 #f7f7f7,
+        stop:1 #dcdcdc
     );
     border: 1px solid #888;
     border-radius: 6px;
@@ -18,7 +16,6 @@ QPushButton {
     color: #000;
 }
 
-/* Paspaudus – gradientas apsiverčia (atrodo, kad mygtukas įsispaudė) */
 QPushButton:pressed {
     background-color: qlineargradient(
         x1:0, y1:0, x2:0, y2:1,
@@ -28,7 +25,6 @@ QPushButton:pressed {
     );
 }
 
-/* Užvedus pelę – šiek tiek pašviesėja */
 QPushButton:hover {
     background-color: qlineargradient(
         x1:0, y1:0, x2:0, y2:1,
@@ -38,7 +34,6 @@ QPushButton:hover {
     );
 }
 
-/* ==== 3. Specialūs mygtukai pagal objectName ==== */
 QPushButton#btn13 {
     background-color: qlineargradient(
         x1:0, y1:0, x2:0, y2:1,
@@ -59,7 +54,6 @@ QPushButton#btn12 {
     font-weight: bold;
 }
 
-/* ==== 4. Skaičiuotuvo ekranas ==== */
 QLineEdit#Screen  {
     background-color: #ffffff;
     border: 2px solid #333;
