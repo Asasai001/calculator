@@ -1,10 +1,11 @@
 import math_functions
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
-from calculator_gui import Ui_MainWindow
+from ui.calculator_gui import Ui_MainWindow
 from calculator import calculator
 from history import history_show, history_clear
 from validation import *
 from math_functions import *
+import os
 
 
 class MyCalculator(QMainWindow, Ui_MainWindow):
@@ -12,7 +13,7 @@ class MyCalculator(QMainWindow, Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
 
-        with open("style.qss", "r", encoding="utf-8") as f:
+        with open(os.path.join(os.path.dirname(__file__), "styles", "style.qss"), "r", encoding="utf-8") as f:
             self.setStyleSheet(f.read())
 
         self.clear_on_next_input = False
