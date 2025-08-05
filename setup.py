@@ -4,7 +4,7 @@ with open("README.md", "r", encoding="utf-8") as readme:
     long_description = readme.read()
 
 setup(
-    name='calculator',
+    name='pyqt5-calculator',
     version='0.1.0',
     author="Arnoldas A.",
     author_email="ambrasas.arnoldas@gmail.com",

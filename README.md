@@ -53,7 +53,7 @@ python -m calculator.main
 
 ## Installing via pip install
 ```bash
-pip install pyqt5‑calculator0.1
+pip install pyqt5‑calculator
 ```
 
 
